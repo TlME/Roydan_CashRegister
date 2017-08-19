@@ -8,9 +8,9 @@ namespace CashRegister.Domain
 {
     public class InventoryManager
     {
-        public static void AddInventory()
+        public static void AddInventory(DTO.InventoryDTO item_DTO)
         {
-            Persistence.InventoryRepo.AddInventoryItem();
+            Persistence.InventoryRepo.AddInventoryItem(item_DTO);
         }
     }
 }
