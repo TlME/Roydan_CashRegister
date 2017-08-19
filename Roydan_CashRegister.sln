@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashRegister.Presentation", "CashRegister.Presentation\CashRegister.Presentation.csproj", "{DC88CBB4-2609-47FF-8075-F584E1DCDE9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashRegister.Domain", "CashRegister.Domain\CashRegister.Domain.csproj", "{98FC72A4-F0C7-4743-A6AA-4075697F9FFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashRegister.Persistence", "CashRegister.Persistence\CashRegister.Persistence.csproj", "{75579CF7-2F5B-4C8A-873D-9F5831E4EDDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashRegister.DTO", "CashRegister.DTO\CashRegister.DTO.csproj", "{AC4431AE-1913-4EB3-905C-1F17C8848E06}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC88CBB4-2609-47FF-8075-F584E1DCDE9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC88CBB4-2609-47FF-8075-F584E1DCDE9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC88CBB4-2609-47FF-8075-F584E1DCDE9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC88CBB4-2609-47FF-8075-F584E1DCDE9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98FC72A4-F0C7-4743-A6AA-4075697F9FFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98FC72A4-F0C7-4743-A6AA-4075697F9FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98FC72A4-F0C7-4743-A6AA-4075697F9FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98FC72A4-F0C7-4743-A6AA-4075697F9FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75579CF7-2F5B-4C8A-873D-9F5831E4EDDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75579CF7-2F5B-4C8A-873D-9F5831E4EDDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75579CF7-2F5B-4C8A-873D-9F5831E4EDDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75579CF7-2F5B-4C8A-873D-9F5831E4EDDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC4431AE-1913-4EB3-905C-1F17C8848E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC4431AE-1913-4EB3-905C-1F17C8848E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC4431AE-1913-4EB3-905C-1F17C8848E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC4431AE-1913-4EB3-905C-1F17C8848E06}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
