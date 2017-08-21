@@ -1,13 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashRegister.Presentation", "CashRegister.Presentation\CashRegister.Presentation.csproj", "{DC88CBB4-2609-47FF-8075-F584E1DCDE9A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{98FC72A4-F0C7-4743-A6AA-4075697F9FFD} = {98FC72A4-F0C7-4743-A6AA-4075697F9FFD}
+		{AC4431AE-1913-4EB3-905C-1F17C8848E06} = {AC4431AE-1913-4EB3-905C-1F17C8848E06}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashRegister.Domain", "CashRegister.Domain\CashRegister.Domain.csproj", "{98FC72A4-F0C7-4743-A6AA-4075697F9FFD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC4431AE-1913-4EB3-905C-1F17C8848E06} = {AC4431AE-1913-4EB3-905C-1F17C8848E06}
+		{75579CF7-2F5B-4C8A-873D-9F5831E4EDDA} = {75579CF7-2F5B-4C8A-873D-9F5831E4EDDA}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashRegister.Persistence", "CashRegister.Persistence\CashRegister.Persistence.csproj", "{75579CF7-2F5B-4C8A-873D-9F5831E4EDDA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC4431AE-1913-4EB3-905C-1F17C8848E06} = {AC4431AE-1913-4EB3-905C-1F17C8848E06}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashRegister.DTO", "CashRegister.DTO\CashRegister.DTO.csproj", "{AC4431AE-1913-4EB3-905C-1F17C8848E06}"
 EndProject

@@ -83,6 +83,8 @@ namespace CashRegister.Presentation
 
             Domain.InventoryManager.AddInventory(item_DTO);
             loadInventory();
+            itemNameTextBox.Text = "";
+            itemPriceTextBox.Text = "";
         }
     }
 }
