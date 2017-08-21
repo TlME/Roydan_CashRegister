@@ -7,45 +7,43 @@ using CashRegister.DTO;
 
 namespace CashRegister.Persistence
 {
-    public class InventoryRepo
+    public class ShoppingCartRepo
     {
-        public static void AddInventoryItem(DTO.InventoryDTO item_DTO)
+        public static void AddCartItem(InventoryDTO item_DTO)
         {
             var db = new CashRegisterDbEntities();
-            var item = convertToInventoryEntity(item_DTO);
+            var item = convertToShoppingCartEntity(item_DTO);
 
-            db.Inventories.Add(item);
+            db.ShoppingCarts.Add(item);
             db.SaveChanges();
         }
 
-        public static List<InventoryDTO> LoadInventory()
+        public static void RemoveCartItem(InventoryDTO item_DTO)
         {
             var db = new CashRegisterDbEntities();
-            var inventory = db.Inventories.ToList();
+            var item = convertToShoppingCartEntity(item_DTO);
+
+            db.ShoppingCarts.Attach(item);
+            db.ShoppingCarts.Remove(item);
+            db.SaveChanges();
+        }
+        public static List<InventoryDTO> LoadCartItems()
+        {
+            var db = new CashRegisterDbEntities();
+            var cart = db.ShoppingCarts.ToList();
             var inventory_DTOs = new List<InventoryDTO>();
 
-            foreach(var item in inventory)
+            foreach (var item in cart)
             {
                 var nextDTO = convertToInventoryDTO(item);
                 inventory_DTOs.Add(nextDTO);
             }
             return inventory_DTOs;
         }
-
-        public static void RemoveInventoryItem(InventoryDTO item_DTO)
+        private static ShoppingCart convertToShoppingCartEntity(InventoryDTO item_DTO)
         {
-            var db = new CashRegisterDbEntities();
-            var item = convertToInventoryEntity(item_DTO);
+            var item = new ShoppingCart();
 
-            db.Inventories.Attach(item);
-            db.Inventories.Remove(item);
-            db.SaveChanges();
-        }
-
-        private static Inventory convertToInventoryEntity(InventoryDTO item_DTO)
-        {
-            var item = new Inventory();
-            
             item.ItemID = item_DTO.ItemID;
             item.Name = item_DTO.Name;
             item.Price = item_DTO.Price;
@@ -54,7 +52,7 @@ namespace CashRegister.Persistence
 
             return item;
         }
-        private static InventoryDTO convertToInventoryDTO(Inventory item)
+        private static InventoryDTO convertToInventoryDTO(ShoppingCart item)
         {
             var item_DTO = new InventoryDTO();
 

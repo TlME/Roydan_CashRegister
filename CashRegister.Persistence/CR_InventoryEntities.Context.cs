@@ -26,5 +26,7 @@ namespace CashRegister.Persistence
         }
     
         public virtual DbSet<Inventory> Inventories { get; set; }
+        public virtual DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
     }
 }

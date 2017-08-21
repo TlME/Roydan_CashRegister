@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CashRegisterDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CashRegisterDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Inventory">
           <Key>
             <PropertyRef Name="ItemID" />
@@ -14,11 +14,30 @@
           <Property Name="Price" Type="smallmoney" Nullable="false" />
           <Property Name="TaxExempt" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="ShoppingCart">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="smallmoney" Nullable="false" />
+          <Property Name="TaxExempt" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Customer_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Item" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Price" Type="smallmoney" Nullable="false" />
+          <Property Name="Time" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="CashRegisterDbModelStoreContainer">
           <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShoppingCart" EntityType="Self.ShoppingCart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CashRegisterDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -33,7 +52,27 @@
         </EntityType>
         <EntityContainer Name="CashRegisterDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Inventories" EntityType="Self.Inventory" />
+          <EntitySet Name="ShoppingCarts" EntityType="CashRegisterDbModel.ShoppingCart" />
+          <EntitySet Name="Transactions" EntityType="CashRegisterDbModel.Transaction" />
         </EntityContainer>
+        <EntityType Name="ShoppingCart">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="TaxExempt" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Customer_ID" Type="Guid" Nullable="false" />
+          <Property Name="Item" Type="Guid" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -47,6 +86,26 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="TaxExempt" ColumnName="TaxExempt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoppingCarts">
+            <EntityTypeMapping TypeName="CashRegisterDbModel.ShoppingCart">
+              <MappingFragment StoreEntitySet="ShoppingCart">
+                <ScalarProperty Name="TaxExempt" ColumnName="TaxExempt" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="CashRegisterDbModel.Transaction">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
